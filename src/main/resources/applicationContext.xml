@@ -12,12 +12,26 @@
         <constructor-arg value="Yurii"/>
     </bean>
 
-    <bean id="musicBean"
+    <bean id="musicRockBean"
           class="org.example.music.RockMusic">
     </bean>
+    <bean id="musicClassicBean"
+          class="org.example.music.ClassicalMusic">
+    </bean>
+
+    <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
     <bean id="musicPlayer" class="org.example.music.MusicPlayer">
-        <constructor-arg ref="musicBean"/>
+        <!--<constructor-arg ref="musicBean"/>-->
+        <property name="music" ref="musicRockBean"/>
+        <property name="name" value="${musicPlayer.name}"/>
+        <property name="volume" value="${musicPlayer.volume}"/>
+        <property name="musicList">
+            <list value-type="java.util.ArrayList">
+                <ref bean="musicRockBean"/>
+                <ref bean="musicClassicBean"/>
+            </list>
+        </property>
     </bean>
 
 </beans>
