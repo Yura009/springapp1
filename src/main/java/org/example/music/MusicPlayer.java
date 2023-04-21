@@ -1,11 +1,16 @@
 package org.example.music;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import java.util.List;
 
+@Component
 public class MusicPlayer {
-    private List<Music> musicList;
-    private Music music;
-    private String name;
+    private ClassicalMusic classicalMusic;
+
+    private RockMusic rockMusic;
+    /*private String name;
     private int volume;
 
     public void doMyInit(){
@@ -14,23 +19,24 @@ public class MusicPlayer {
 
     public void doMyDestroy(){
         System.out.println("destroy");
+    }*/
+
+    @Autowired
+    public MusicPlayer(ClassicalMusic classicalMusic, RockMusic rockMusic) {
+        this.classicalMusic = classicalMusic;
+        this.rockMusic = rockMusic;
     }
 
-    //IoC
-    public MusicPlayer(Music music) {
-        this.music = music;
+
+    public String playMusic() {
+        /*//for (Music music : musicList) {
+            System.out.println("Playing: " + classicalMusic.getSong());
+            System.out.println("Playing: " + rockMusic.getSong());
+        //}*/
+        return classicalMusic.getSong() + rockMusic.getSong();
     }
 
-    public MusicPlayer() {
-    }
-
-    public void playMusic() {
-        for (Music music : musicList) {
-            System.out.println("Playing: " + music.getSong());
-        }
-    }
-
-    public void setMusic(Music music) {
+    /*public void setMusic(Music music) {
         this.music = music;
     }
 
@@ -56,6 +62,6 @@ public class MusicPlayer {
 
     public void setMusicList(List<Music> musicList) {
         this.musicList = musicList;
-    }
+    }*/
 
 }

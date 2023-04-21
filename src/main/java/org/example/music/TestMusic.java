@@ -1,5 +1,6 @@
 package org.example.music;
 
+import org.example.computer.Computer;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TestMusic {
@@ -12,11 +13,14 @@ public class TestMusic {
         System.out.println(firstMusicPlayer == secondMusicPlayer);
         System.out.println(firstMusicPlayer);
         System.out.println(secondMusicPlayer);
-        secondMusicPlayer.setVolume(66);
+       /* secondMusicPlayer.setVolume(66);
         System.out.println(firstMusicPlayer.getVolume());
         System.out.println(secondMusicPlayer.getVolume());
         firstMusicPlayer.playMusic();
-        System.out.println("Name: " + firstMusicPlayer.getName() + " Volume: " + firstMusicPlayer.getVolume());
+        System.out.println("Name: " + firstMusicPlayer.getName() + " Volume: " + firstMusicPlayer.getVolume());*/
+        firstMusicPlayer.playMusic();
+        Computer computer = context.getBean("computer",Computer.class);
+        System.out.println(computer.toString());
         context.close();
     }
 }

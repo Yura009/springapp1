@@ -24,11 +24,11 @@
 
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
-    <bean id="musicPlayer" class="org.example.music.MusicPlayer"
+    <!--<bean id="musicPlayer" class="org.example.music.MusicPlayer"
           scope="prototype"
           init-method="doMyInit"
           destroy-method="doMyDestroy">
-        <!--<constructor-arg ref="musicBean"/>-->
+        &lt;!&ndash;<constructor-arg ref="musicBean"/>&ndash;&gt;
         <property name="music" ref="musicRockBean"/>
         <property name="name" value="${musicPlayer.name}"/>
         <property name="volume" value="${musicPlayer.volume}"/>
@@ -38,7 +38,7 @@
                 <ref bean="musicClassicBean"/>
             </list>
         </property>
-    </bean>
+    </bean>-->
 
     <context:component-scan base-package="org.example"/>
 </beans>
