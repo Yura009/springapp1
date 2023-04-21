@@ -21,7 +21,8 @@
 
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
-    <bean id="musicPlayer" class="org.example.music.MusicPlayer">
+    <bean id="musicPlayer" class="org.example.music.MusicPlayer"
+    scope="prototype">
         <!--<constructor-arg ref="musicBean"/>-->
         <property name="music" ref="musicRockBean"/>
         <property name="name" value="${musicPlayer.name}"/>
