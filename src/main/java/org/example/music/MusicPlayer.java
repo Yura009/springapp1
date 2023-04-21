@@ -8,6 +8,14 @@ public class MusicPlayer {
     private String name;
     private int volume;
 
+    public void doMyInit(){
+        System.out.println("init");
+    }
+
+    public void doMyDestroy(){
+        System.out.println("destroy");
+    }
+
     //IoC
     public MusicPlayer(Music music) {
         this.music = music;
