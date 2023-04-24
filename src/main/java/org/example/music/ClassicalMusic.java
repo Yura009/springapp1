@@ -1,12 +1,16 @@
 package org.example.music;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 @Component("musicClassicBean")
+@Scope("prototype")
 public class ClassicalMusic implements Music{
 
     List<String> musicList = new ArrayList<String>();
@@ -23,5 +27,15 @@ public class ClassicalMusic implements Music{
 
     public String getSong() {
         return musicList.get(random.nextInt(upperbound));
+    }
+
+    @PostConstruct
+    public void doMyInit(){
+        System.out.println("Doing my initialization");
+    }
+
+    @PreDestroy
+    public void doMyDestroy(){
+        System.out.println("Doing me destroying");
     }
 }
