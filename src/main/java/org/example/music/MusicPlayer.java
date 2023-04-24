@@ -1,67 +1,29 @@
 package org.example.music;
 
+import org.example.enums.EnumMusic;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 @Component
 public class MusicPlayer {
-    private ClassicalMusic classicalMusic;
-
-    private RockMusic rockMusic;
-    /*private String name;
-    private int volume;
-
-    public void doMyInit(){
-        System.out.println("init");
-    }
-
-    public void doMyDestroy(){
-        System.out.println("destroy");
-    }*/
+    private Music music1;
+    private Music music2;
 
     @Autowired
-    public MusicPlayer(ClassicalMusic classicalMusic, RockMusic rockMusic) {
-        this.classicalMusic = classicalMusic;
-        this.rockMusic = rockMusic;
+    public MusicPlayer(@Qualifier("musicRockBean") Music music1,
+                       @Qualifier("musicClassicBean") Music music2) {
+        this.music1 = music1;
+        this.music2 = music2;
     }
 
-
-    public String playMusic() {
-        /*//for (Music music : musicList) {
-            System.out.println("Playing: " + classicalMusic.getSong());
-            System.out.println("Playing: " + rockMusic.getSong());
-        //}*/
-        return classicalMusic.getSong() + rockMusic.getSong();
+    public String playMusic(EnumMusic enumMusic) {
+        if (enumMusic.equals(EnumMusic.ROCK)){
+            return "Playing: " + music1.getSong();
+        }
+        if (enumMusic.equals(EnumMusic.CLASSICAL)) {
+            return "Playing: " + music2.getSong();
+        }
+        return "Nothing!";
     }
-
-    /*public void setMusic(Music music) {
-        this.music = music;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getVolume() {
-        return volume;
-    }
-
-    public void setVolume(int volume) {
-        this.volume = volume;
-    }
-
-    public List<Music> getMusicList() {
-        return musicList;
-    }
-
-    public void setMusicList(List<Music> musicList) {
-        this.musicList = musicList;
-    }*/
-
 }

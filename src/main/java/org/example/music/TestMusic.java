@@ -1,6 +1,7 @@
 package org.example.music;
 
 import org.example.computer.Computer;
+import org.example.enums.EnumMusic;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TestMusic {
@@ -18,7 +19,7 @@ public class TestMusic {
         System.out.println(secondMusicPlayer.getVolume());
         firstMusicPlayer.playMusic();
         System.out.println("Name: " + firstMusicPlayer.getName() + " Volume: " + firstMusicPlayer.getVolume());*/
-        firstMusicPlayer.playMusic();
+        System.out.println(firstMusicPlayer.playMusic(EnumMusic.ROCK));
         Computer computer = context.getBean("computer",Computer.class);
         System.out.println(computer.toString());
         context.close();
