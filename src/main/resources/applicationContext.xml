@@ -22,7 +22,7 @@
           factory-method="getClassicalMusic">
     </bean>-->
 
-    <context:property-placeholder location="classpath:musicPlayer.properties"/>
+    <!--<context:property-placeholder location="classpath:musicPlayer.properties"/>-->
 
     <!--<bean id="musicPlayer" class="org.example.music.MusicPlayer"
           scope="prototype"

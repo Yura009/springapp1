@@ -1,22 +1,20 @@
 package org.example.music;
 
-import org.springframework.stereotype.Component;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class RockMusic implements Music{
+public class JazzMusic implements Music {
     List<String> musicList = new ArrayList<String>();
 
     Random random = new Random();
 
     int upperbound = 3;
 
-    public RockMusic() {
-        musicList.add("Rock1");
-        musicList.add("Rock2");
-        musicList.add("Rock3");
+    public JazzMusic() {
+        musicList.add("Jazz1");
+        musicList.add("Jazz2");
+        musicList.add("Jazz3");
     }
 
     public String getSong() {

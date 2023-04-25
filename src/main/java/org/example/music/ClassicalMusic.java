@@ -9,8 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-@Component("musicClassicBean")
-@Scope("prototype")
 public class ClassicalMusic implements Music{
 
     List<String> musicList = new ArrayList<String>();
